@@ -1,0 +1,57 @@
+<div class="container-fluid mt-5">
+  @if(bookings){
+  <div class="table-responsive position-relative">
+    <table class="table table-hover text-center mt-1 border rounded">
+      <caption class="caption-top">
+        List of Bookings
+      </caption>
+      <thead class="table-light">
+        <tr class="table-active">
+          <th scope="col" class="align-top">Booking ID</th>
+          <th scope="col" class="align-top">
+            <p class="m-0 ps-2 text-start">User</p>
+          </th>
+          <th scope="col" class="align-top">
+            <p class="m-0 ps-2 text-start">Hotel Name</p>
+          </th>
+          <th scope="col" class="align-top">Room Type</th>
+          <th scope="col" class="align-top">Guests</th>
+          <th scope="col" class="align-top">Check In</th>
+          <th scope="col" class="align-top">Check Out</th>
+          <th scope="col" class="align-top">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (booking of bookings; track $index) {
+        <tr role="button">
+          <td class="align-middle" scope="row">{{ booking._id }}</td>
+          <td class="align-middle">
+            <p class="d-flex justify-content-start m-0 ps-2">
+              {{ booking.user.userName || booking.user.email }}
+            </p>
+          </td>
+          <td class="align-middle">
+            <p class="d-flex justify-content-start m-0 ps-2">
+              {{ booking.room[0]?.hotelId?.hotelName }}
+            </p>
+          </td>
+          <td class="align-middle">
+            <ul class="m-0">
+              @for(hotel of booking.room ; track $index){
+              <li class="p-0">{{ hotel.roomType }}</li>
+              }
+            </ul>
+          </td>
+          <td class="align-middle">{{ booking.guests }}</td>
+          <td class="align-middle">{{ booking.checkIn | date }}</td>
+          <td class="align-middle">{{ booking.checkOut | date }}</td>
+          <td class="align-middle">
+            {{ booking.totalPrice | currency : "USD" : "symbol" : ".0" }}
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  }
+</div>

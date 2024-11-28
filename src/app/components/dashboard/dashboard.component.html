@@ -1,0 +1,65 @@
+<app-header> </app-header>
+
+<main class="d-flex">
+  <div style="min-height: 100vh">
+    <div
+      style="height: 100%"
+      class="d-flex flex-column flex-shrink-0 sidebar-wrap"
+    >
+      <a routerLink="/" class="text-decoration-none logo-wrap">
+        <div class="icon-wrap"><i class="fab fa-slack"></i></div>
+        <span>Admin</span>
+      </a>
+      <hr />
+      <ul
+        class="nav nav-pills flex-column mb-auto position-sticky top-0 start-0"
+      >
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link active" aria-current="page">
+            <div class="icon-wrap">
+              <i class="fas fa-home"></i>
+            </div>
+            <span> Home</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/hotels" class="nav-link">
+            <div class="icon-wrap">
+              <i class="fab fa-product-hunt"></i>
+            </div>
+            <span>Hotels</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/rooms" class="nav-link">
+            <div class="icon-wrap">
+              <i class="fab fa-intercom"></i>
+            </div>
+
+            <span>Rooms</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/users" class="nav-link">
+            <div class="icon-wrap">
+              <i class="fab fa-first-order"></i>
+            </div>
+            <span>Users</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/bookings" class="nav-link">
+            <div class="icon-wrap">
+              <i class="fab fa-first-order"></i>
+            </div>
+            <span>Bookings</span>
+          </a>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  </div>
+  <div class="flex-grow-1 overflow-hidden">
+    <router-outlet></router-outlet>
+  </div>
+</main>
